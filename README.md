@@ -90,8 +90,8 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 #### 4. Model Training/Testing/Evaluation
 - [MNB](#model-training-testing-evaluation-mnb)
 - [MLP](#model-training-testing-evaluation-mlp)
-- [SVM](#model-training-testing-evaluation-svm)
-model-training-testing-evaluation-svm
+- [Model Training/Testing/Evaluation: SVM](#model-training-testing-evaluation-svm)
+
 
 ```python
 !pip show nltk
