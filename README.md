@@ -3,7 +3,7 @@ To compare the performance of three classification algorithms Multinomial Naive 
 <br>
 
 ## Tools
-- python 
+Python 
 
 <br>
 
@@ -131,9 +131,9 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 import matplotlib.pyplot as plt
 ```
-## CHANGE THE DF NAME
+
 ```python
-df = pd.read_csv('/kaggle/input/emotion-detection-from-text/tweet_emotions.csv')
+df = pd.read_csv('tweet_emotions.csv')
 df.head(10)
 ```
 
@@ -217,7 +217,6 @@ plt.show()
 ![Distribution class sentiment](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/ab1e9164-3da2-422f-b61f-6ad4002f0c7a)
 
 
-
 Observations:
 - Classes are imbalanced - each class is not evenly distributed. Imbalance rate <21.32% (anger - neutral)
 - Tweets primarily convey neutral and negative sentiments
@@ -232,13 +231,11 @@ The above result illustrates class imbalance of <21.32%. To find the best ratio,
 <strong> Method 2: </strong> Categorising the data into two primary emotions: Positive, Negative ('Surprise' and 'Neutral' as Positive).
 ![class distribution 2](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/12c12575-18b3-48b9-84f2-c268294a4c86)
 
-
 <strong> Method 3: </strong> Categorising the data into two primary emotions: Positive, Negative ('Neutral' as Positive, 'Surprise' as Negative).
 ![class distribution 3](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/5b538466-2977-4c23-aac5-31f066c5d2c6)
 
 <strong> Method 4: </strong> Categorising the data into two primary emotions: Positive, Negative ('Surprise' as Positive, 'Neutral' as Negative).
 ![class distribution 4](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/5ee3469f-17d6-4d16-987d-07bb4f932725)
-
 
 <strong> Method 5: </strong> Categorising the data into three primary emotions: Positive, Negative, and Neutral
 ![class distribution 5](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/8a036043-ea2b-4c12-8df9-43d48851c097)
