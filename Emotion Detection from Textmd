@@ -1,5 +1,9 @@
 2023 August
 
+Paper name: Data Mining and Knowledge Engineering
+
+<br>
+
 ## Purpose of this project:
 To compare the performance of three classification algorithms Multinomial Naive Bayes, Multilayer Perceptron, and Support Vector Machine 
 <br>
@@ -601,5 +605,19 @@ print("Classification Report:\n", classification_rep)
 accuracy = accuracy_score(y_test, y_pred)
 print("Accuracy:", accuracy)
 ```
+<br>
+
+Among the tabulated results below, the SVM classifier with raw data achieved the highest precision
+rate of 0.58, along with the highest overall score, including recall (0.59) and F1 (0.58) score. The lowest
+precision of 0.506, was observed with the MLP classifier on processed data. The NB classifier on
+preprocessed data had the lowest recall, at 0.48.
+
+
+
+
+
+
+
+
 
 
