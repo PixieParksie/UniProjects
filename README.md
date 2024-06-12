@@ -1,6 +1,5 @@
 # Purpose of this project:
 To compare the performance of three classification algorithms.
-Multinomial Naive Bayes (MNB), Multilayer Perceptron (MLP), and Support Vector Machine (SVM)
 
 <br>
 
@@ -78,15 +77,15 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 - Preparaion
 - Balancing class
 
-#### 2. [Preprocess](#Data-Exploration:-Exploring-Class)
+#### 2. Preprocess
 - Data cleaning
 - Exploring Cleaned Data & Investigating Stopwords in Text
 - Tokenising
 
-#### 3. [Feature Engineering](#Feature-Engineering:-Vectorising-Using-TF-IDF)
+#### 3. Feature Engineering
 - Vectorising using TF-IDF
 
-#### 4. [Model Training/Testing/Evaluation](#Model-Training/Testing/Evaluation:-MNB)
+#### 4. Model Training/Testing/Evaluation
 - MNB
 - MLP
 - SVM
@@ -119,7 +118,7 @@ from nltk.tokenize import sent_tokenize
 #!pip install stop_words
 
 from sklearn.model_selection import train_test_split
-from sklearn._extraction.text import TfidfTransformer
+from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 from sklearn.naive_bayes import MultinomialNB
@@ -133,7 +132,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 import matplotlib.pyplot as plt
 ```
-
+# CHANGE THE DF NAME
 ```python
 df = pd.read_csv('/kaggle/input/emotion-detection-from-text/tweet_emotions.csv')
 df.head(10)
@@ -180,7 +179,7 @@ df.reset_index(inplace=True, drop = True)
 df.shape
 ```
 
-# Data Exploration: Exploring Class
+# Data Exploration - Exploring Class
 ```python
 # Unique values from 'sentiment'
 unique_sentiments = df['sentiment'].unique()
@@ -216,24 +215,34 @@ plt.title('Distribution of class "sentiment"')
 plt.gca().invert_yaxis()  # Invert the y-axis to have the highest sentiment at the top
 plt.show()
 ```
+![Distribution class sentiment](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/ab1e9164-3da2-422f-b61f-6ad4002f0c7a)
+
+
 
 Observations:
 - Classes are imbalanced - each class is not evenly distributed. Imbalance rate <21.32% (anger - neutral)
 - Tweets primarily convey neutral and negative sentiments
 
-# Data Exploration: Balancing Class
+# [Data Exploration] Balancing Class
 
 The above result illustrates class imbalance of <21.32%. To find the best ratio, I've experimented with aggregating classes in five different methods:
 
 <strong> Method 1: </strong>  Categorising the data into two primary emotions: Positive, Negative ('Surprise' and 'Neutral' as Negative).
+![class distribution 1](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/a8c43201-6388-4687-a52f-d635bd5d608e)
 
 <strong> Method 2: </strong> Categorising the data into two primary emotions: Positive, Negative ('Surprise' and 'Neutral' as Positive).
+![class distribution 2](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/12c12575-18b3-48b9-84f2-c268294a4c86)
+
 
 <strong> Method 3: </strong> Categorising the data into two primary emotions: Positive, Negative ('Neutral' as Positive, 'Surprise' as Negative).
+![class distribution 3](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/5b538466-2977-4c23-aac5-31f066c5d2c6)
 
 <strong> Method 4: </strong> Categorising the data into two primary emotions: Positive, Negative ('Surprise' as Positive, 'Neutral' as Negative).
+![class distribution 4](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/5ee3469f-17d6-4d16-987d-07bb4f932725)
+
 
 <strong> Method 5: </strong> Categorising the data into three primary emotions: Positive, Negative, and Neutral
+![class distribution 5](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/8a036043-ea2b-4c12-8df9-43d48851c097)
 
 
 When 'Surprise' and 'Neutral' are classified under a separate class 'Neutral', we encounter an imbalance of up to 13.17%, slightly above the general guideline.
@@ -332,6 +341,8 @@ for index, value in enumerate(frequencies):
 
 plt.show()
 ```
+![class distribution 6 - after combining](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/5cec39df-dac3-4a21-8bfd-e1a2b5b32500)
+
 
 ```python
 # Mapping sentiment num / encode
@@ -354,7 +365,7 @@ print(len(X))
 print(len(y))
 ```
 
-# Preprocessing: Data Cleaning
+# [Preprocessing] Data Cleaning
 ```python
 # Cleaning and lemmatising
 cleaned = []
@@ -444,7 +455,7 @@ contains 3 stopwords, 'to', 'out', and 'with'
 '''
 ```
 
-# Preprocessing: Tokenisation
+# [Preprocessing] Tokenisation
 ```python
 cleaned_tokenized = []
 for each in cleaned:
@@ -478,7 +489,7 @@ X = cleaned_tokenized
 df.loc[3]
 ```
 
-# Feature Engineering: Vectorising Using TF-IDF
+# [Feature Engineering] Vectorising Using TF-IDF
 ```python
 count_vectorizer = CountVectorizer()
 count_vectorizer.fit_transform(X)
@@ -494,7 +505,7 @@ dense_tf_idf_matrix = tf_idf_matrix.toarray()         # tf-idf dense matrix
 X_train, X_test, y_train, y_test = train_test_split(tf_idf_matrix, y, test_size=0.2, random_state=42)
 ```
 
-# Model Training/Testing/Evaluation: MNB
+# [Model Training/Testing/Evaluation] MNB
 ```python
 model = MultinomialNB()
 
@@ -540,7 +551,7 @@ plt.title('Confusion Matrix NB')
 plt.show()
 ```
 
-# Model Training/Testing/Evaluation: MLP
+# [Model Training/Testing/Evaluation] MLP
 ```python
 mlp_model = MLPClassifier(hidden_layer_sizes=(100, 100), alpha = 0.01, max_iter=100)
 
@@ -576,7 +587,7 @@ plt.grid(True)
 plt.show()
 ```
 
-# Model Training/Testing/Evaluation: SVM
+# [Model Training/Testing/Evaluation] SVM
 ```python
 # Train
 model = SVC()
