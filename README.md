@@ -85,12 +85,12 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 - [Tokenising](#preprocessing-tokenisation)
 
 #### 3. Feature Engineering
-- [Vectorising using TF-IDF](#feature-engineering-vectorising-using-TF-IDF)
+- [Vectorising using TF-IDF](#feature-engineering-vectorising-using-tfidf)
 
 #### 4. Model Training/Testing/Evaluation
-- [MNB](#Model-Training/Testing/Evaluation:-MNB)
-- [MLP](#Model-Training/Testing/Evaluation:-MLP)
-- [SVM](#Model-Training/Testing/Evaluation:-SVM)
+- [MNB](#model-training-testing-evaluation-mnb)
+- [MLP](#model-training-testing-evaluation-mlp)
+- [SVM](#model-training/testing/evaluation-svm)
 
 
 ```python
