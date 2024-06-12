@@ -48,7 +48,7 @@ Reason: SVM demonstrated the highest Accuracy, Precision and Recall rates. It al
 ## Four things I did to maximise accuracy and why:
 - One: Cleaned special characters
  
-Rationale: Tweets contain dynamic ways of conveying emotions through text. We retained punctuation marks ('!' and '?') to capture emotional tones during text cleaning. However, as there was no significant difference in the results, hence we proceeded to remove these characters.
+Rationale: Tweets contain dynamic ways of conveying emotions through text. We retained punctuation marks ('!' and '?') to capture emotional tones during text cleaning. However, as there was no significant difference in the results - we proceeded to remove these characters.
 
 
 - Two: Lemmatisation
