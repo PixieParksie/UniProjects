@@ -69,28 +69,28 @@ Rationale: TF-IDF exhibited higher accuracy compared to GloVe. Accuracy rates dr
 
 ## What did I do to mitigate data imbalance?:
 
-I Combined the 13 labels into three primary emotions: Positive, Negative, and Neutral. Further details are explained in [here](#Data-Exploration-Balancing-Class).
+I Combined the 13 labels into three primary emotions: Positive, Negative, and Neutral. Further details are explained in [here](#Data-Exploration-Exploring-Class).
 
 <br>
 
 ## Table of Contents:
 
-#### 1. [Data Exploration](#Data-Exploration) 
-- Preparaion
+#### 1. Data Exploration
+- [Preparaion](#)
 - Balancing class
 
 #### 2. Preprocess
-- Data cleaning
-- Exploring Cleaned Data & Investigating Stopwords in Text
-- Tokenising
+- [Data cleaning](#Preprocessing-Data-Cleaning)
+- [Exploring Cleaned Data & Investigating Stopwords in Text](#Preprocessing:-Exploring-Cleaned-Data-&-Investigating-Stopwords-in-Text)
+- [Tokenising](#Preprocessing:-Tokenisation)
 
 #### 3. Feature Engineering
-- Vectorising using TF-IDF
+- [Vectorising using TF-IDF](#Feature-Engineering:-Vectorising-Using-TF-IDF)
 
 #### 4. Model Training/Testing/Evaluation
-- MNB
-- MLP
-- SVM
+- [MNB](#Model-Training/Testing/Evaluation:-MNB)
+- [MLP](#Model-Training/Testing/Evaluation:-MLP)
+- [SVM](#Model-Training/Testing/Evaluation:-SVM)
 
 
 ```python
@@ -180,7 +180,7 @@ df.reset_index(inplace=True, drop = True)
 df.shape
 ```
 
-## Data Exploration - Exploring Class
+## Data Exploration: Exploring Class
 ```python
 # Unique values from 'sentiment'
 unique_sentiments = df['sentiment'].unique()
@@ -223,7 +223,7 @@ Observations:
 - Classes are imbalanced - each class is not evenly distributed. Imbalance rate <21.32% (anger - neutral)
 - Tweets primarily convey neutral and negative sentiments
 
-## [Data Exploration] Balancing Class
+## Data Exploration: Balancing Class
 
 The above result illustrates class imbalance of <21.32%. To find the best ratio, I've experimented with aggregating classes in five different methods:
 
@@ -363,7 +363,7 @@ print(len(X))
 print(len(y))
 ```
 
-## [Preprocessing] Data Cleaning
+## Preprocessing: Data Cleaning
 ```python
 # Cleaning and lemmatising
 cleaned = []
@@ -401,7 +401,7 @@ for sen in range(0, len(X)):
 len(cleaned)
 ```
 
-## Exploring Cleaned Data & Investigating Stopwords in Text
+## Preprocessing: Exploring Cleaned Data & Investigating Stopwords in Text
 ```python
 # Count stopwords present in the data
 nltk.download('punkt')
