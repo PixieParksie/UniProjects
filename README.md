@@ -76,8 +76,8 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 ## Table of Contents:
 
 #### 1. Data Exploration
-- [Preparaion](#)
-- Balancing class
+- [Preparaion](#Data-Exploration:-Data-Preparation)
+- [Balancing class](#Data-Exploration:-Balancing-Class)
 
 #### 2. Preprocess
 - [Data cleaning](#Preprocessing-Data-Cleaning)
@@ -139,7 +139,7 @@ df = pd.read_csv('tweet_emotions.csv')
 df.head(10)
 ```
 
-## Data Exploration
+## Data Exploration: Data Preparation
 ```python
 df.info()
 ```
