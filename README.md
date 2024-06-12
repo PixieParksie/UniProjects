@@ -81,11 +81,11 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 
 #### 2. Preprocess
 - [Data cleaning](#preprocessing-data-cleaning)
-- [Exploring Cleaned Data & Investigating Stopwords in Text](#preprocessing-exploring-cleaned-data-&-investigating-stopwords-in-text)
+- [Exploring Cleaned Data & Investigating Stopwords in Text](#preprocessing-exploring-cleaned-data--investigating-stopwords-in-text)
 - [Tokenising](#preprocessing-tokenisation)
 
 #### 3. Feature Engineering
-- [Vectorising using TF-IDF](#feature-engineering-vectorising-using-tfidf)
+- [Vectorising using TF-IDF](#feature-engineering-vectorising-using-tf-idf)
 
 #### 4. Model Training/Testing/Evaluation
 - [MNB](#Model-TrainingTestingEvaluation-MNB)
