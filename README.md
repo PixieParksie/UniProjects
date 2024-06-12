@@ -88,8 +88,8 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 - [Vectorising using TF-IDF](#feature-engineering-vectorising-using-tfidf)
 
 #### 4. Model Training/Testing/Evaluation
-- [MNB](#model-training-testing-evaluation-mnb)
-- [MLP](#model-training-testing-evaluation-mlp)
+- [MNB](#Model-TrainingTestingEvaluation-MNB)
+- [MLP](#Model-TrainingTestingEvaluation-MLP)
 - [SVM](#Model-TrainingTestingEvaluation-SVM)
 
 
