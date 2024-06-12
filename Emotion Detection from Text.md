@@ -96,6 +96,10 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 - [MLP](#Model-TrainingTestingEvaluation-MLP)
 - [SVM](#Model-TrainingTestingEvaluation-SVM)
 
+#### 5. [Experiment details](#experiment-details)
+
+#### 6. [Conclusion](#conclusion)
+
 
 ```python
 !pip show nltk
@@ -607,17 +611,80 @@ print("Accuracy:", accuracy)
 ```
 <br>
 
+## Experiment details
+
+Experimenting with models using processed dataset VS unprocessed dataset:
+
+[link to unprocessed](https://colab.research.google.com/drive/1jh9gScBxIQdxO-8pPBg46C7_soCVFkHQ?usp=sharing) 
+
+[link to preprocessed](https://colab.research.google.com/drive/1QbfXdSHwerGPzA1gFMOPjBuNbXyNOMn-?usp=sharing)
+
 Among the tabulated results below, the SVM classifier with raw data achieved the highest precision
 rate of 0.58, along with the highest overall score, including recall (0.59) and F1 (0.58) score. The lowest
 precision of 0.506, was observed with the MLP classifier on processed data. The NB classifier on
 preprocessed data had the lowest recall, at 0.48.
+![processed vs unprocessed](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/32212ac0-5af3-4bb3-b04c-1c623cffcedd)
 
 
+These models achieved precision and recall rate approximately 50%, meaning that predictions for
+sentiments are somewhat accurate but not highly precise in terms of minimising false positives and false
+negatives.
+
+To find variation between the algorithms, I assessed the sensitivity of each model to changes in data
+characteristics by comparing the differences in precision, recall, and F1-score between processed and
+unprocessed data. As shown in the table below, there is consistency between the SVM scores for unprocessed and
+processed data. From this, it can be assumed that SVM is relatively robust to changes in the input data
+because, due to its nature, it finds a hyperplane that best separates classes based on the original features.
+MLP on the other hand, is a little more sensitive to quality of input data due to its capacity to capture
+complex, non-linear relationships in data. MLP may struggle to learn these patterns and perform better
+with preprocessed, cleaner data.
+![2](https://github.com/PixieParksie/-Uni-Project-Data-Mining-/assets/106667881/344262f3-1694-47b8-b68a-ef4eedb13563)
 
 
+The consistent pattern showed only slight changes in classification results. Variation of preprocessing did
+not contribute much significant changes. Another consistent pattern we observed was that, after
+embedding text with GloVe, classifier accuracy rates dropped by up to 20% for both unprocessed and
+preprocessed data.
 
+Expected / Unexpected outcomes and result aberrations in the experiments :
+- I was concerned that removing stopwords might lead to the loss of valuable information,
+particularly in rows with a high number of stopwords, containing over 50% of the sentence. As
+expected, retaining stopwords improved precision.
+- Stemming and lemmatisation had minimal impact on accuracy.
+Stemming had no effect, while lemmatisation produced sight changes by approximately 0.001.
+- I expected that using word embeddings like GloVe would enhance accuracy by capturing
+semantic and contextual information. Contrary to this, embedding usage led to a significant
+accuracy decrease of up to 20%, which starkly contrasts with our previous findings.
+- All classification results (accuracy, precision, recall, and F1-score) dropped when using
+preprocessed data, except for the accuracy of Naive Bayes, which showed a slight increase.
 
+Although Naive Bayes achieved the highest accuracy score, accuracy alone isn't always the reliable
+metric. The best-performing algorithm was SVM, which demonstrated the highest precision and recall
+rates. It also exhibited robustness to noise and changes in input data, making it the ideal choice for the
+Emotion Detection dataset. Moreover, it does not require too significant computational resources, making
+it an approachable option. Based on the experiment results, the most effective preprocessing techniques
+were lemmatisation and the retention of stopwords, and the best feature selection method was TF-IDF, as
+it consistently provided the best outcomes in the iterative experiments.
 
+<br>
 
+## Conclusion
 
+In conclusion, these experiments and analysis have shed light on the influence of various factors, including
+algorithm types, parameters, pre-processing, and feature engineering techniques, on classification results.
 
+Based on the findings, I recommend using SVM combined with lemmatisation, retaining stopwords, and utilising a TF-IDF vectoriser.
+
+In theory, unprocessed data is expected to outperform preprocessed data due to the risk of overfitting in
+unprocessed data, where the model may capture noise, leading to poor generalisation. Preprocessing is
+designed to mitigate overfitting by cleaning and simplifying the data, allowing the model to focus on the
+most relevant information.
+
+However, our empirical results challenge this theoretical expectation. Surprisingly, I observed no
+significant differences in evaluation metrics between unprocessed and preprocessed data. This suggests
+that preprocessing may have limited impact in this context, or the data's quality may mitigate the effects
+of cleaning steps.
+
+This research provides valuable insights into the complexities of data preparation and model selection in
+the context of these datasets, highlighting the need for further investigation and a nuanced approach to
+data processing in machine learning
