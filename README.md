@@ -1,6 +1,5 @@
 ## Purpose of this project:
-To compare the performance of three classification algorithms.
-
+To compare the performance of three classification algorithms Multinomial Naive Bayes, Multilayer Perceptron, and Support Vector Machine 
 <br>
 
 ## Tools
