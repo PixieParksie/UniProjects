@@ -76,7 +76,7 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 ## Table of Contents:
 
 #### 1. Data Exploration
-- [Preparaion](#Data-Exploration:-Data-Preparation)
+- [Preparaion](#data-exploration-data-preparation)
 - [Balancing class](#Data-Exploration:-Balancing-Class)
 
 #### 2. Preprocess
