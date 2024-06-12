@@ -1,14 +1,14 @@
-# Purpose of this project:
+## Purpose of this project:
 To compare the performance of three classification algorithms.
 
 <br>
 
-# Tools
+## Tools
 - python 
 
 <br>
 
-# Algorithms and parameters used:
+## Algorithms and parameters used:
 
 - Multinomial Naive Bayes (MNB), Param: default
 - Multilayer Perceptron (MLP), Param: 100,100, a=0.01
@@ -16,21 +16,21 @@ To compare the performance of three classification algorithms.
 
 <br>
 
-# Results (accuracy):
+## Results (accuracy):
 - MNB: 0.533
 - MLP: 0.53
 - SVM: 0.59
 
 <br>
 
-# Best-performing algorithm and why:
+## Best-performing algorithm and why:
 Support Vector Machine.
 
 Reason: SVM demonstrated the highest Accuracy, Precision and Recall rates. It also exhibited robustness to noise and changes in input data, making it the ideal choice for the this particular dataset. Additionaly, it does not require significant computational resources, making it an approachable option.
 
 <br>
 
-# Details about the dataset:
+## Details about the dataset:
 - This public domain dataset is collected from data.world platform, shared by @crowdflower, a data enrichment, mining and crowdsourcing company based in the US.
 - The dataset consists of 40000 records of tweets labelled with 13 different sentiments, followed by Tweet ID number.
 - All data types are strings, except for the 'tweet ID' column, which is an integer.
@@ -44,34 +44,34 @@ Reason: SVM demonstrated the highest Accuracy, Precision and Recall rates. It al
 
 <br>
 
-# Four things I did to maximise accuracy and why:
-#### - One: Cleaned special characters
+## Four things I did to maximise accuracy and why:
+- One: Cleaned special characters
  
 Rationale: Tweets contain dynamic ways of conveying emotions through text. We retained punctuation marks ('!' and '?') to capture emotional tones during text cleaning. However, as there was no significant difference in the results, hence we proceeded to remove these characters.
 
 
-#### - Two: Lemmatisation
+- Two: Lemmatisation
   
 Rationale: Experimented stemming and lemmatisation, using both and interchangeably. Neither had zero to minimal impact on accuracy. Stemming showed no effect, while lemmatisation produced slight changes of 0.001.
 
 
-#### - Three: Retained stopword
+- Three: Retained stopword
 
 Rationale: Retaining stopwords improved precision. There's a possibility that removing stopwords could result in the loss of valuable information, especially in rows where a high number of stopwords, accounting for over 50% of the sentence.
 
 
-#### - Four: TF-IDF as Feature Engineering method
+- Four: TF-IDF as Feature Engineering method
 
 Rationale: TF-IDF exhibited higher accuracy compared to GloVe. Accuracy rates dropped by up to 20% after embedding text using GloVe.
 
 
-# What did I do to mitigate data imbalance?:
+## What did I do to mitigate data imbalance?:
 
 I Combined the 13 labels into three primary emotions: Positive, Negative, and Neutral. Further details are explained in [here](#Data-Exploration-Balancing-Class).
 
 <br>
 
-# Table of Contents:
+## Table of Contents:
 
 #### 1. [Data Exploration](#Data-Exploration) 
 - Preparaion
@@ -91,7 +91,7 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 - SVM
 
 
-# code starts
+## code starts
 ```python
 !pip show nltk
 !pip install --upgrade nltk
@@ -132,13 +132,13 @@ from sklearn.pipeline import Pipeline
 from sklearn.svm import SVC
 import matplotlib.pyplot as plt
 ```
-# CHANGE THE DF NAME
+## CHANGE THE DF NAME
 ```python
 df = pd.read_csv('/kaggle/input/emotion-detection-from-text/tweet_emotions.csv')
 df.head(10)
 ```
 
-# Data Exploration
+## Data Exploration
 ```python
 df.info()
 ```
@@ -179,7 +179,7 @@ df.reset_index(inplace=True, drop = True)
 df.shape
 ```
 
-# Data Exploration - Exploring Class
+## Data Exploration - Exploring Class
 ```python
 # Unique values from 'sentiment'
 unique_sentiments = df['sentiment'].unique()
@@ -223,7 +223,7 @@ Observations:
 - Classes are imbalanced - each class is not evenly distributed. Imbalance rate <21.32% (anger - neutral)
 - Tweets primarily convey neutral and negative sentiments
 
-# [Data Exploration] Balancing Class
+## [Data Exploration] Balancing Class
 
 The above result illustrates class imbalance of <21.32%. To find the best ratio, I've experimented with aggregating classes in five different methods:
 
@@ -365,7 +365,7 @@ print(len(X))
 print(len(y))
 ```
 
-# [Preprocessing] Data Cleaning
+## [Preprocessing] Data Cleaning
 ```python
 # Cleaning and lemmatising
 cleaned = []
@@ -455,7 +455,7 @@ contains 3 stopwords, 'to', 'out', and 'with'
 '''
 ```
 
-# [Preprocessing] Tokenisation
+## Preprocessing: Tokenisation
 ```python
 cleaned_tokenized = []
 for each in cleaned:
@@ -489,7 +489,7 @@ X = cleaned_tokenized
 df.loc[3]
 ```
 
-# [Feature Engineering] Vectorising Using TF-IDF
+## Feature Engineering: Vectorising Using TF-IDF
 ```python
 count_vectorizer = CountVectorizer()
 count_vectorizer.fit_transform(X)
@@ -505,7 +505,7 @@ dense_tf_idf_matrix = tf_idf_matrix.toarray()         # tf-idf dense matrix
 X_train, X_test, y_train, y_test = train_test_split(tf_idf_matrix, y, test_size=0.2, random_state=42)
 ```
 
-# [Model Training/Testing/Evaluation] MNB
+## Model Training/Testing/Evaluation: MNB
 ```python
 model = MultinomialNB()
 
@@ -551,7 +551,7 @@ plt.title('Confusion Matrix NB')
 plt.show()
 ```
 
-# [Model Training/Testing/Evaluation] MLP
+## Model Training/Testing/Evaluation: MLP
 ```python
 mlp_model = MLPClassifier(hidden_layer_sizes=(100, 100), alpha = 0.01, max_iter=100)
 
@@ -587,7 +587,7 @@ plt.grid(True)
 plt.show()
 ```
 
-# [Model Training/Testing/Evaluation] SVM
+## Model Training/Testing/Evaluation: SVM
 ```python
 # Train
 model = SVC()
