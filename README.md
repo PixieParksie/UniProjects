@@ -1,5 +1,6 @@
 # Purpose of this project:
 To compare the performance of three classification algorithms.
+Multinomial Naive Bayes (MNB), Multilayer Perceptron (MLP), and Support Vector Machine (SVM)
 
 <br>
 
@@ -77,15 +78,15 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 - Preparaion
 - Balancing class
 
-#### 2. Preprocess
+#### 2. [Preprocess](#Data-Exploration:-Exploring-Class)
 - Data cleaning
 - Exploring Cleaned Data & Investigating Stopwords in Text
 - Tokenising
 
-#### 3. Feature Engineering
+#### 3. [Feature Engineering](#Feature-Engineering:-Vectorising-Using-TF-IDF)
 - Vectorising using TF-IDF
 
-#### 4. Model Training/Testing/Evaluation
+#### 4. [Model Training/Testing/Evaluation](#Model-Training/Testing/Evaluation:-MNB)
 - MNB
 - MLP
 - SVM
@@ -118,7 +119,7 @@ from nltk.tokenize import sent_tokenize
 #!pip install stop_words
 
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import TfidfTransformer
+from sklearn._extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 
 from sklearn.naive_bayes import MultinomialNB
@@ -179,7 +180,7 @@ df.reset_index(inplace=True, drop = True)
 df.shape
 ```
 
-# Data Exploration - Exploring Class
+# Data Exploration: Exploring Class
 ```python
 # Unique values from 'sentiment'
 unique_sentiments = df['sentiment'].unique()
@@ -220,7 +221,7 @@ Observations:
 - Classes are imbalanced - each class is not evenly distributed. Imbalance rate <21.32% (anger - neutral)
 - Tweets primarily convey neutral and negative sentiments
 
-# [Data Exploration] Balancing Class
+# Data Exploration: Balancing Class
 
 The above result illustrates class imbalance of <21.32%. To find the best ratio, I've experimented with aggregating classes in five different methods:
 
@@ -353,7 +354,7 @@ print(len(X))
 print(len(y))
 ```
 
-# [Preprocessing] Data Cleaning
+# Preprocessing: Data Cleaning
 ```python
 # Cleaning and lemmatising
 cleaned = []
@@ -443,7 +444,7 @@ contains 3 stopwords, 'to', 'out', and 'with'
 '''
 ```
 
-# [Preprocessing] Tokenisation
+# Preprocessing: Tokenisation
 ```python
 cleaned_tokenized = []
 for each in cleaned:
@@ -477,7 +478,7 @@ X = cleaned_tokenized
 df.loc[3]
 ```
 
-# [Feature Engineering] Vectorising Using TF-IDF
+# Feature Engineering: Vectorising Using TF-IDF
 ```python
 count_vectorizer = CountVectorizer()
 count_vectorizer.fit_transform(X)
@@ -493,7 +494,7 @@ dense_tf_idf_matrix = tf_idf_matrix.toarray()         # tf-idf dense matrix
 X_train, X_test, y_train, y_test = train_test_split(tf_idf_matrix, y, test_size=0.2, random_state=42)
 ```
 
-# [Model Training/Testing/Evaluation] MNB
+# Model Training/Testing/Evaluation: MNB
 ```python
 model = MultinomialNB()
 
@@ -539,7 +540,7 @@ plt.title('Confusion Matrix NB')
 plt.show()
 ```
 
-# [Model Training/Testing/Evaluation] MLP
+# Model Training/Testing/Evaluation: MLP
 ```python
 mlp_model = MLPClassifier(hidden_layer_sizes=(100, 100), alpha = 0.01, max_iter=100)
 
@@ -575,7 +576,7 @@ plt.grid(True)
 plt.show()
 ```
 
-# [Model Training/Testing/Evaluation] SVM
+# Model Training/Testing/Evaluation: SVM
 ```python
 # Train
 model = SVC()
