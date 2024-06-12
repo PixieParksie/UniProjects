@@ -64,6 +64,7 @@ Rationale: Retaining stopwords improved precision. There's a possibility that re
 
 Rationale: TF-IDF exhibited higher accuracy compared to GloVe. Accuracy rates dropped by up to 20% after embedding text using GloVe.
 
+<br>
 
 ## What did I do to mitigate data imbalance?:
 
@@ -91,7 +92,6 @@ I Combined the 13 labels into three primary emotions: Positive, Negative, and Ne
 - SVM
 
 
-## code starts
 ```python
 !pip show nltk
 !pip install --upgrade nltk
