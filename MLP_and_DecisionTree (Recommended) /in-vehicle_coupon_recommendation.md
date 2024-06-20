@@ -1,4 +1,3 @@
-
 ### 2. Data Exploration
 
 The 'in-vehicle coupon recommendation Dataset' was gathered from a survey on Amazon Mechanical Turk. The survey asked about different driving situations like destination, presence of passengers, weather, and time of day to predict if drivers would accept coupons. 
@@ -40,7 +39,7 @@ C = Categorical
 
 Missing values and data types:
 
-6 features are integers (car, Bar, CoffeeHouse, CarryAway, RestarantLessThan20, and Restarant20to50). The rest are objects.
+6 features are integers (car, Bar, CoffeeHouse, CarryAway, RestarantLessThan20, and Restarant20to50). The remaining ones are objects.
 
 <br>
 
@@ -48,7 +47,7 @@ Missing values and data types:
 
 The feature ‘car’ has the highest missing value rate of 99% (12576). This has been dropped as it can cause bias in the analysis. 
 
-The rest 5 features, “Bar”, “CoffeeHouse”, “CarryAway”, “RestaurantlessThan20”, and “Restaurant 20To50” have an average missing value rate of 1.25%. As per general guideline, missing values that are less 5% has minimal impact to overall analysis.
+The remaining 5 features, “Bar”, “CoffeeHouse”, “CarryAway”, “RestaurantlessThan20”, and “Restaurant 20To50” have an average missing value rate of 1.25%. As per general guidelines, missing values that are less 5% have minimal impact on the overall analysis, therefore we will retain them
 
 ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/3dab7bfb-bb35-4c2f-a6d5-615d0c0aa497)
 
@@ -56,7 +55,9 @@ The rest 5 features, “Bar”, “CoffeeHouse”, “CarryAway”, “Restauran
 
 #### Duplicates:
 
-74 duplicates have been removed. Duplicates in data can negatively impact data quality in several different ways.
+74 duplicates have been removed. 
+
+It is important to keep in mind that this dataset lacks a unique identifier or key that distinguishes individual records (such as a customer ID or transaction ID). There is no definitive way to determine if identical rows represent the same entity. It could be different labels assigned to the same record, or simply just a systematic error.
 
 <br>
 
@@ -64,7 +65,9 @@ Visualisation / Analysis
 ---
 
 #### Distribution of coupons:
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/0d11b4db-c67c-491a-9007-7631de063c47)  ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/89dfbc9f-4cb2-4500-8490-78275712bcfc)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/2d088c86-086c-4752-9e35-f7fcf5266ace) ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/4e48c00a-3090-4f1f-8c2c-954264532644)
+
+
 
 - Coffee House distributes the most coupons. It shows the highest acceptance rate but also experiences the highest rejection rate. 
 - Coupons for light meals like restaurants(<20 seats) and takeaways tend to have higher acceptance rates than rejection rates, whereas coupons that have the lowest distribution rate like bars and restaurants (20-50 seats) typically face higher rejection rates.
@@ -75,21 +78,21 @@ Let’s investigate the factors that influence coupon type and acceptance rates 
 
 #### 1. Gender / Occupation & Salary:
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/6cf856c5-eb03-45b3-bb2f-cd8ed61ad377) 
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/7a3736c9-bd0c-4c15-884b-6daee649022e)
 
 Both males and females have a similar acceptance rate. A larger proportion of females tend to accept the coupon compared to males.
 
 <br>
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/d5fb23b4-7905-472e-9582-678c5557bd7d)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/5108f5d2-2ddc-4c8c-a9d6-de3061008c33)
 
 There is a high ratio of drivers who fall under the categories of Unemployed, Student, Education&Training&Library, Sales & Related, and Computer & Mathematical occupations. 
 
 <br>
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/bb709ccc-ee70-4f1e-b062-f6c1910f01ff)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/c11100c1-9f8e-428c-9286-395871061f33)
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/2facc022-7444-4838-b18f-0df9f91f70b2)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/36c72bcf-fa62-4ebc-a1db-6d7b2ad15848)
 
 Categories that have higher rejection rates are Community/Social Service, Legal, and Retired.
 
@@ -97,22 +100,24 @@ Categories that have higher rejection rates are Community/Social Service, Legal,
 
 #### 2. Marital Status:
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/ad5d8e7a-4328-476d-bc92-476a657f0477)  ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/f3663086-bdf1-479b-8610-1634bec790a7)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/425d7fb6-e047-4fc2-8b4a-17e04b14c349)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/a9a3bde5-245a-45b9-a441-3a92d0574b8e)
 
 Coupons are distributed widely among drivers classified as 'single' and 'married partners' across all categories.
 
 <br>
 
-#### 4.	Contextual:
+#### 4.	Contextual: TO BE EDITED
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/5ff4c004-fc18-4231-9915-46a2a300d037)  
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/534b8d6e-16c7-406c-bcf7-b8dbb028f20d) ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/a96069dd-f569-4236-ac0f-b11ae8de543f)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/e2057418-7361-4d00-9870-fd09f32b85f2)
+
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/e2554ff4-fb9d-4fb3-8f54-defb02f2bdf1) ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/dd997e0f-1e28-4bd2-ab65-e664bc4db7a1)
 
 Drivers tend to accept the coupon more often when they are not in a hurry to reach a destination urgently. Acceptance rates are higher outside of rush hours, with a peak around 2pm, after lunchtime. Less popular times for accepting coupons are around 7am, during morning commute hours, and at 10pm, closer to bedtime.
 
 <br>
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/f817d503-a144-4323-a3da-d2d61ec7deb3) ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/ebc21fee-e785-4e69-8bed-befa1e644dcb)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/ef29e9c6-f663-413b-a2a9-a7780a0c7379) ![image](https://github.com/PixieParksie/UniProjects/assets/106667881/867d2013-e069-4be1-aa26-2c3fd0d2c423)
 
 Coupons are more frequently distributed on sunny days compared to cold and rainy days. People are more likely to reject coupons when the weather is rainy or cold.
 
@@ -120,13 +125,13 @@ Coupons are more frequently distributed on sunny days compared to cold and rainy
 
 #### 5. Situational:
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/cc78fee6-8736-48c3-86fd-03297e5d92ec)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/2e0c1efc-d0da-4c96-a14f-7620a3c1beb3)
 
 Acceptance rates are higher when drivers are offered coupons with longer expiration dates.
 
 <br>
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/45eceefd-17e2-42cb-b0f1-cbd8f194d59a)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/8056f6e9-fdee-4994-a86b-c08a446f24fb)
 
 Drivers tend to decline the coupon as the distance to drive grows longer
 
@@ -141,7 +146,7 @@ Baseline model: used default parameters, resulting in a decision tree consisting
 
 10-fold CV scores for adjusted ‘max_depth’ parameter:
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/b8efff9d-6339-4ab6-9c0d-11c7a821b13f)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/c06ffe2c-2363-4104-bd1e-1b31f5f5b394)
 - Adjusted the max_depth parameter to limit the depth of the decision tree, testing different values of max_depth from 1 to 14 using 10-fold cross-validation for each value.
 - Diagram below displays the average scores from 10-fold cv for various max_depth values. The optimal max_depth is 6.
 - After adjusting the max_depth parameter, nodes in the tree decreased to 127, and the accuracy score improved to 0.70 (2dp)
@@ -152,7 +157,7 @@ Baseline model: used default parameters, resulting in a decision tree consisting
 
 10-fold CV scores for adjusted ‘max_leaf_nodes’ parameter
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/d510aa21-6c0c-43e5-8dbc-d6cb16f3cc97)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/d5471d10-d2f9-4dc2-a947-31868744e831)
 - I focused on adjusting the max_leaf_nodes parameter, as it limits the max number of leaf nodes in the decision tree.
 - Used max_depth value of 6 as a starting point, then examined different max_leaf_node values from 2 to 39. Through this process, we determined that a max_leaf_node value of 22 resulted in the highest score from our 10-fold cross-validation.
 - The model achieved an accuracy score of 0.70 (2dp). Adjustments did not significantly improve the accuracy of DTC.
@@ -161,7 +166,7 @@ Baseline model: used default parameters, resulting in a decision tree consisting
 
 #### Final optimised classification tree:
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/d1e4a716-3a7f-43bc-801f-790ef99dfc73)
+![DTC](https://github.com/PixieParksie/UniProjects/assets/106667881/246ae68f-359a-4c61-9507-d13b35b0d0aa)
 - This binary tree comprises a total of 47 nodes - 24 internal nodes with 22 leaf nodes that make final classification decisions.
 - The optimised tree has a depth of 6 levels. This depth value was identified as optimal during the decision tree's parameter optimisation (depth indicates the longest path from the initial node to any leaf node in the tree).
 
@@ -171,34 +176,32 @@ Baseline model: used default parameters, resulting in a decision tree consisting
 
 Confusion Matrix
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/09f9c75e-6975-41b6-adfa-7bee0ebb286b)
-
-- 1704 instances were correctly classified as 'accept' (TP).
-- 943 instances were correctly classified as 'reject' (TN).
-- 706 instances were incorrectly classified as 'accept' when they were actually 'reject' (FP).
-- 453 instances were incorrectly classified as 'reject' when they were actually 'accept' (FN).
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/c5ffb783-741b-416f-b6ea-4812754e76ea)
+- 1661 instances were correctly classified as 'accept' (TP).
+- 970 instances were correctly classified as 'reject' (TN).
+- 684 instances were incorrectly classified as 'accept' when they were actually 'reject' (FP).
+- 468 instances were incorrectly classified as 'reject' when they were actually 'accept' (FN).
 
 <br>
 
 Model summary report
 
-![image](https://github.com/PixieParksie/UniProjects/assets/106667881/0584427c-b101-418b-a512-3dfab9da761c)
+![image](https://github.com/PixieParksie/UniProjects/assets/106667881/e2e8c101-4de8-456a-b7b5-43f9ee0aa5cd)
 
-Precision 0: 68% chance that the model will predict a driver will reject the coupon, it is accurate most of the time.
+Precision 0: 67% chance that the model will predict a driver will reject the coupon, it is accurate most of the time.
 
 Precision 1: 71% chance that the model will predict a driver will accept the coupon, it is correct most of the time.
 
-Recall 0: 57% chance that the model effectively captures most of the drivers who truly reject the coupon.
+Recall 0: 59% chance that the model effectively captures most of the drivers who truly reject the coupon.
 
-Recall 1: 79% chance that the model effectively captures most of the drivers who truly accept the coupon.
+Recall 1: 78% chance that the model effectively captures most of the drivers who truly accept the coupon.
 
-F1-score 0: Out of all instances predicted as 'reject' by the model, 62% are actually 'accept'.
+F1-score 0: Out of all instances predicted as 'reject' by the model, 63% are actually 'accept'.
 
-F1-score 1: Out of all instances predicted as 'accept' by the model, 75% are actually 'accept'.
+F1-score 1: Out of all instances predicted as 'accept' by the model, 74% are actually 'accept'.
 
-Accuracy (0.70): 70% of the predictions made by the model are correct (predictions across both 'accept' and 'reject' classes).
+Accuracy: 70% of the predictions made by the model are correct (predictions across both 'accept' and 'reject' classes).
 
-Error rate (0.30): 30% chance that the model willmake incorrect prediction.
 
 <br>
 
